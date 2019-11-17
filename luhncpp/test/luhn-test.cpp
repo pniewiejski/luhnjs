@@ -19,6 +19,7 @@ TEST(luhn, calculateLuhnRemainder) {
 TEST(luhn, generateLuhnCheckDigit) {
   EXPECT_EQ(luhn::generateCheckDigit("7992739871"), 3);
   EXPECT_EQ(luhn::generateCheckDigit("987654321"), 7);
+  EXPECT_EQ(luhn::generateCheckDigit("123"), 0);
 }
 
 TEST(luhn, luhn_generateLuhnCheckDigitWithInvalidInput) {
