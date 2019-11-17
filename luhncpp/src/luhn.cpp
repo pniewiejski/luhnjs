@@ -39,7 +39,7 @@ bool luhn::isValid(const std::string rawInput) {
 
 int luhn::generateCheckDigit(const std::string rawInput) {
   if (rawInput.length() < 1 || !consistsOnlyOfDigits(rawInput)) {
-    throw "Error in luhncpp: rawInput must contain only digits";
+    throw std::string("Error in luhncpp: rawInput must contain only digits");
   }
   const int luhnRemainder = calculateLuhnRemainder(rawInput + "0");
   return 10 - luhnRemainder;
