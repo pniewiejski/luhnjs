@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "formatCode": "prettier ./**/*.js --list-different --write",
     "build": "node-gyp rebuild",
     "clean": "node-gyp clean"
   },
