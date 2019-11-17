@@ -22,7 +22,7 @@ TEST(luhn, generateLuhnCheckDigit) {
 }
 
 TEST(luhn, luhn_generateLuhnCheckDigitWithInvalidInput) {
-  ASSERT_THROW(luhn::generateCheckDigit("123abc"), std::string);
+  ASSERT_THROW(luhn::generateCheckDigit("123abc"), std::invalid_argument);
 }
 
 TEST(luhn, consistsOfNumbers) {

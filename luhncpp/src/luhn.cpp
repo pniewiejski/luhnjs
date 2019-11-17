@@ -6,7 +6,7 @@ bool luhn::consistsOnlyOfDigits(const std::string rawInput) {
     return std::isdigit(character, locale);
   };
 
-  return std::all_of(rawInput.begin(), rawInput.end(), isdigit);
+  return std::all_of(rawInput.begin(), rawInput.end(), isDigit);
 }
 
 int luhn::handleOddOffset(const int digit) {
@@ -39,7 +39,7 @@ bool luhn::isValid(const std::string rawInput) {
 
 int luhn::generateCheckDigit(const std::string rawInput) {
   if (rawInput.length() < 1 || !consistsOnlyOfDigits(rawInput)) {
-    throw std::string("Error in luhncpp: rawInput must contain only digits");
+    throw std::invalid_argument("Error in luhncpp: rawInput must contain only digits");
   }
   const int luhnRemainder = calculateLuhnRemainder(rawInput + "0");
   return 10 - luhnRemainder;

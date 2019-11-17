@@ -1,0 +1,30 @@
+{
+  "name": "luhnjs",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node-gyp rebuild",
+    "clean": "node-gyp clean"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Transmitator/luhnjs.git"
+  },
+  "keywords": [
+    "luhn", "luhn algorithm", "smart card"
+  ],
+  "author": "Piotr Niewiejski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Transmitator/luhnjs/issues"
+  },
+  "homepage": "https://github.com/Transmitator/luhnjs#readme",
+  "devDependencies": {
+    "node-gyp": "^6.0.1"
+  },
+  "dependencies": {
+    "node-addon-api": "^1.7.1"
+  }
+}

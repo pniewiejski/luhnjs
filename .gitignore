@@ -2,6 +2,9 @@
 .vscode/
 .idea/
 
+## N-API 
+build/ 
+
 ## Node 
 # Logs
 logs
