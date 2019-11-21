@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha ./**/*.test.js",
-    "formatCode": "prettier ./**/*.js --list-different --write",
+    "checkCodeStyle": "./node_modules/prettier/bin-prettier.js ./**/*.js --list-different",
+    "formatCode": "./node_modules/prettier/bin-prettier.js ./**/*.js --list-different --write",
+    "lint": "./node_modules/eslint/bin/eslint.js .",
     "build": "node-gyp rebuild",
     "clean": "node-gyp clean"
   },
