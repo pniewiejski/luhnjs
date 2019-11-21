@@ -1,6 +1,10 @@
-# C++ project
+# luhnjs - C++ project
 
 ## Running unit tests
+
+Unit tests for this project are managed by the
+[googletest](https://github.com/google/googletest/blob/master/LICENSE) 
+library which distributed under the BSD 3-Clause licence.
 
 1. Make sure that in the `lib/` directory the `googletest` dependency is
    present. **It should be downloaded as git submodule.** If you've already
