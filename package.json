@@ -21,7 +21,7 @@
     "smart card"
   ],
   "author": "Piotr Niewiejski",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Transmitator/luhnjs/issues"
   },
