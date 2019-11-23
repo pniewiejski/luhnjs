@@ -1,5 +1,7 @@
 # luhnjs
-![](https://github.com/Transmitator/luhnjs/workflows/Node%20CI/badge.svg)
+
+![](https://github.com/pniewiejski/luhnjs/workflows/Node%20CI/badge.svg)
+![](https://github.com/pniewiejski/luhnjs/workflows/C++%20unit/badge.svg)
 
 **Luhn's algorithm**, also known as _mod 10 algorithm_ is a simple checksum
 algorithm used widely for validating identification numbers, such as credit card
