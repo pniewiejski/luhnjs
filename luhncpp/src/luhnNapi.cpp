@@ -7,8 +7,12 @@ Napi::Boolean luhnAddon::IsValid(const Napi::CallbackInfo& info) {
   }
 
   Napi::String numberToCheck = info[0].As<Napi::String>();
-
-  bool isValid = luhn::isValid(std::string(numberToCheck));
+  bool isValid = false;
+  try {
+    isValid = luhn::isValid(std::string(numberToCheck));
+  } catch (const std::exception& e) {
+    Napi::TypeError::New(env, "Invalid argument").ThrowAsJavaScriptException();
+  }
 
   return Napi::Boolean::New(env, isValid);
 }
@@ -26,7 +30,26 @@ Napi::Number luhnAddon::GenerateCheckDigit(const Napi::CallbackInfo& info) {
   } catch (const std::exception& e) {
     Napi::TypeError::New(env, "Invalid argument").ThrowAsJavaScriptException();
   }
+
   return Napi::Number::New(env, checkDigit);
+}
+
+Napi::Number luhnAddon::calculateLuhnRemainder(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  if (info.Length() < 1 || !info[0].IsString()) {
+    Napi::TypeError::New(env, "String expected").ThrowAsJavaScriptException();
+  }
+
+  Napi::String input = info[0].As<Napi::String>();
+  int luhnRemainder = 0;
+  try {
+    luhnRemainder =
+        luhn::calculateLuhnRemainderWithValidation(std::string(input));
+  } catch (const std::exception& e) {
+    Napi::TypeError::New(env, "Invalid argument").ThrowAsJavaScriptException();
+  }
+
+  return Napi::Number::New(env, luhnRemainder);
 }
 
 /**
@@ -41,6 +64,8 @@ Napi::Object Init(Napi::Env env, Napi::Object exports) {
   exports.Set("isValid", Napi::Function::New(env, luhnAddon::IsValid));
   exports.Set("generateCheckDigit",
               Napi::Function::New(env, luhnAddon::GenerateCheckDigit));
+  exports.Set("calculateLuhnRemainder",
+              Napi::Function::New(env, luhnAddon::calculateLuhnRemainder));
 
   return exports;
 }
