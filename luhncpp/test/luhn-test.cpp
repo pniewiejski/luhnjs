@@ -7,13 +7,15 @@ TEST(luhn, checkLuhnValidityForValidInput) {
 }
 
 TEST(luhn, checkLuhnValidityForInvalidInput) {
-  EXPECT_EQ(luhn::isValid("79927398713abs"), false);
-  EXPECT_EQ(luhn::isValid("7992#11f7398711"), false);
+  ASSERT_THROW(luhn::isValid("79927398713abs"), std::invalid_argument);
+  ASSERT_THROW(luhn::isValid("7992#11f7398711"), std::invalid_argument);
 }
 
 TEST(luhn, calculateLuhnRemainder) {
   EXPECT_EQ(luhn::calculateLuhnRemainder("79927398710"), 7);
   EXPECT_EQ(luhn::calculateLuhnRemainder("123"), 8);
+  EXPECT_EQ(luhn::calculateLuhnRemainder("1230"), 0);
+  EXPECT_EQ(luhn::calculateLuhnRemainder("1234567820"), 8);
 }
 
 TEST(luhn, generateLuhnCheckDigit) {
@@ -22,8 +24,17 @@ TEST(luhn, generateLuhnCheckDigit) {
   EXPECT_EQ(luhn::generateCheckDigit("123"), 0);
 }
 
-TEST(luhn, luhn_generateLuhnCheckDigitWithInvalidInput) {
+TEST(luhn, generateLuhnCheckDigitWithInvalidInput) {
   ASSERT_THROW(luhn::generateCheckDigit("123abc"), std::invalid_argument);
+}
+
+TEST(luhn, calculateLuhnRemainderWithValidation) {
+  EXPECT_EQ(luhn::calculateLuhnRemainderWithValidation("79927398710"), 7);
+
+  ASSERT_THROW(luhn::calculateLuhnRemainderWithValidation("123@asc45"),
+               std::invalid_argument);
+  ASSERT_THROW(luhn::calculateLuhnRemainderWithValidation("123 45"),
+               std::invalid_argument);
 }
 
 TEST(luhn, consistsOfNumbers) {
