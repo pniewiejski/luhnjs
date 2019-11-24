@@ -1,7 +1,7 @@
 {
   "name": "luhnjs",
   "version": "0.0.1",
-  "description": "",
+  "description": "N-API addon with Luhn's algorithm implementation",
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha ./**/*.test.js",
@@ -18,7 +18,11 @@
   "keywords": [
     "luhn",
     "luhn algorithm",
-    "smart card"
+    "smart card",
+    "check digit",
+    "ISO 7812",
+    "credit card",
+    "checksum"
   ],
   "author": "Piotr Niewiejski",
   "license": "MIT",
@@ -26,6 +30,13 @@
     "url": "https://github.com/Transmitator/luhnjs/issues"
   },
   "homepage": "https://github.com/Transmitator/luhnjs#readme",
+  "files": [
+    "index.js",
+    "lib/**/*.js",
+    "luhncpp/src/**/*.cpp",
+    "luhncpp/include/**/*.hpp",
+    "binding.gyp"
+  ],
   "devDependencies": {
     "eslint": "^6.6.0",
     "mocha": "^6.2.2",
