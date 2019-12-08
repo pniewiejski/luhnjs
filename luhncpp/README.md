@@ -17,7 +17,7 @@ $ git submodule update --init --recursive
 Alternatively, you can download all submodules during clone:
 
 ```
-$ git clone --recursive git://github.com/Transmitator/luhnjs.git
+$ git clone --recursive git://github.com/pniewiejski/luhnjs.git
 ```
 
 2. Run the following commands:
