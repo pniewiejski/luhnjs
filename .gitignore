@@ -5,7 +5,10 @@
 ## N-API 
 build/ 
 
-## Node 
+## Node
+
+.node-version
+
 # Logs
 logs
 *.log
