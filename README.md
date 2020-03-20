@@ -57,7 +57,7 @@ Please find scripts in `package.json`:
 If you want to find out how to run the C++ unit tests please read
 [this](./luhncpp/README.md).
 
-## Sources 📚:
+## Sources 📚
 
 -   [N-API docs](https://nodejs.github.io/node-addon-api/index.html)
 -   [node-gyp](https://github.com/nodejs/node-gyp)
