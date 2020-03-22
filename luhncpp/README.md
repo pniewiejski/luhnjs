@@ -46,3 +46,5 @@ was generated using:
 ```
 $ clang-format -style=google -dump-config > .clang-format
 ```
+With time some exclusions were made. Please see [#9](https://github.com/pniewiejski/luhnjs/pull/9)
+for more details. 
