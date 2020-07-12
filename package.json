@@ -37,7 +37,6 @@
     "luhncpp/include/**/*.hpp",
     "binding.gyp"
   ],
-  "os": ["linux", "darwin"],
   "devDependencies": {
     "eslint": "^6.6.0",
     "mocha": "^6.2.2",
