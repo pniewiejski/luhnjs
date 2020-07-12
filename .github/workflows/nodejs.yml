@@ -17,12 +17,21 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: npm install, build, and test
+    - name: Install dependencies and build the project
       run: |
         npm install
         npm run build
-        npm run checkCodeStyle
-        npm run lint
-        npm test
       env:
         CI: true
+    - name: Check code style and run linter check
+      if: matrix.os == linux-latest
+      # it's enough to run this on only one platform
+      run: |
+        npm run checkCodeStyle
+        npm run lint
+    - name: Run unit tests
+      run: npm test
+      env:
+        CI: true
+
+
