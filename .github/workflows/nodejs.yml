@@ -24,7 +24,7 @@ jobs:
       env:
         CI: true
     - name: Check code style and run linter check
-      if: matrix.os == linux-latest
+      if: matrix.os == 'ubuntu-latest'
       # it's enough to run this on only one platform
       run: |
         npm run checkCodeStyle
@@ -33,5 +33,3 @@ jobs:
       run: npm test
       env:
         CI: true
-
-

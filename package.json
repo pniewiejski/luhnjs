@@ -4,10 +4,10 @@
   "description": "N-API addon with Luhn's algorithm implementation",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha ./**/*.test.js",
-    "checkCodeStyle": "./node_modules/prettier/bin-prettier.js ./**/*.js --list-different",
-    "formatCode": "./node_modules/prettier/bin-prettier.js ./**/*.js --list-different --write",
-    "lint": "./node_modules/eslint/bin/eslint.js .",
+    "test": "npx mocha ./**/*.test.js",
+    "checkCodeStyle": "npx prettier ./**/*.js --list-different",
+    "formatCode": "npx prettier ./**/*.js --list-different --write",
+    "lint": "npx eslint .",
     "build": "node-gyp rebuild",
     "clean": "node-gyp clean"
   },
