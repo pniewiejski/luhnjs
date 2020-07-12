@@ -6,7 +6,7 @@ jobs:
   build:
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest]
+        os: [ubuntu-latest, macos-latest, windows-latest]
         node-version: [10.x, 12.x]
 
     runs-on: ${{ matrix.os }}
@@ -17,12 +17,19 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: npm install, build, and test
+    - name: Install dependencies and build the project
       run: |
         npm install
         npm run build
+      env:
+        CI: true
+    - name: Check code style and run linter check
+      if: matrix.os == 'ubuntu-latest'
+      # it's enough to run this on only one platform
+      run: |
         npm run checkCodeStyle
         npm run lint
-        npm test
+    - name: Run unit tests
+      run: npm test
       env:
         CI: true
